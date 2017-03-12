@@ -4,7 +4,7 @@ Starter application client written in angular2
 ### Features
 *	Based on fountain-angular2 Yeomen generator
 *	Angular 2, Webpack, TypeScript, gulp, Saas
-*	Supports loign and logout screens
+*	Supports login and logout screens
 * Supports navigation bar
 * Supports user management
 * Use ng-table for managing grids
