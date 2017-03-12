@@ -1,0 +1,38 @@
+<div class="activity">
+  <div class="activity-box">
+    <h4>Search for activity records</h4>
+    <div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-2">
+              <span class="field-name">User id</span>
+              <input #inputUserId [(ngModel)]="userId" type="text" class="form-control" autofocus minlength="0" maxlength="50" placeholder="">
+            </div>
+            <div class="col-sm-2">
+              <span class="field-name">Action type</span>
+              <select class="form-control" id="action" required>
+                <option *ngFor="let action of actions" [value]="action">{{action.name}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2 datetime">
+              <span class="field-name">From</span>
+              <p-calendar class="form-control" [(ngModel)]="model.from" [showTime]="true">{{model.from}}</p-calendar>
+            </div>
+            <div class="col-sm-2 datetime">
+              <span class="field-name">To</span>
+              <p-calendar class="form-control" [(ngModel)]="model.to" [showTime]="true">{{model.to}}</p-calendar>
+            </div>
+            <div class="col-sm-2" class="search">
+              <button type="button" class="btn btn-primary btn-md" (click)="search()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="activity-results">
+    <div class="activity-info"><span>Showing 5 activity records for user id...</span></div>
+    <activity-grid></activity-grid>
+  </div>
+</div>

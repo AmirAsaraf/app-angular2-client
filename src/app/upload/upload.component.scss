@@ -1,0 +1,40 @@
+.upload {
+
+  padding: 10px;
+
+  .restrictions {
+    color: #a5a5a5;
+  }
+
+  .upload-url-container {
+    width: 100%;
+    max-width: 1000px;
+
+    .upload-url-input {
+      padding: 10px 20px 0px 20px;
+
+      .field-name {
+          padding-left: 0;
+      }
+    }
+  }
+
+  .upload-local-container {
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .breadcrumb li {
+    display: inline;
+  }
+
+  .breadcrumb {
+    .header {
+      font-weight: bold;
+      color: #44a4ee;
+    }
+  }
+  .breadcrumb li+li:before {
+    content:"» ";
+  }
+}

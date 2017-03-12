@@ -1,0 +1,62 @@
+<div class="users" [ngBusy]="usersPromise">
+  <div class="title">
+    <h4>Users</h4>
+    <div class="flex-box">
+      <span class="flex-child header">User id</span>
+      <span class="flex-child header">Full name</span>
+      <span class="flex-child header">User name</span>
+      <span class="flex-child header">Role</span>
+    </div>
+    <div class="flex-box" *ngFor="let user of users">
+      <span class="flex-child">{{user.userId}}</span>
+      <span class="flex-child">{{user.fullName}}</span>
+      <span class="flex-child">{{user.userName}}</span>
+      <span class="flex-child">{{user.role}}</span>
+      <a class="flex-child-action" (click)="openManageModal('Edit', user)"><i class="glyphicon glyphicon-edit"></i>   Edit</a>
+      <a class="flex-child-action" (click)="openDeleteModal(user)"><i class="glyphicon glyphicon-trash"></i>   Delete</a>
+    </div>
+    <a class="add-user" (click)="openManageModal('Add')"><i class="glyphicon glyphicon-plus"></i> Add a new user</a>
+  </div>
+  <!-- MODALS -->
+  <modal #manageModal>
+    <form #modalForm="ngForm">
+      <modal-header [show-close]="true">
+        <h4 class="modal-title">{{model.title}}</h4>
+      </modal-header>
+      <modal-body>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input autofocus type="text" class="form-control" required [(ngModel)]="userModel.fullName" name="fullName" id="fullName">
+        </div>
+        <div class="form-group">
+          <label for="userName">User Name</label>
+          <input type="text" class="form-control" required [(ngModel)]="userModel.userName" name="userName" id="userName" [disabled]="!(model.type === 'Add')">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" required [(ngModel)]="userModel.password" name="password" id="password">
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select class="form-control" [(ngModel)]="userModel.role" name="roleselect">
+            <option *ngFor="let role of roles" name="role" id="role">{{role.name}}</option>
+          </select>
+        </div>
+      </modal-body>
+      <modal-footer>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="manageModal.dismiss()">Cancel</button>
+        <button type="button" class="btn btn-primary" [disabled]="!modalForm.valid" (click)="manageModal.close(); onManageSave()">Save</button>
+      </modal-footer>
+    </form>
+  </modal>
+  <modal #deleteModal>
+    <modal-header [show-close]="true">
+      <h4 class="modal-title">Delete user</h4>
+    </modal-header>
+    <modal-body>Are you sure you want to delete user '{{userToDelete.userName}}'?</modal-body>
+    <modal-footer>
+      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="deleteModal.dismiss()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="deleteModal.close(); onDeleteUserOk()">OK</button>
+    </modal-footer>
+  </modal>
+</div>

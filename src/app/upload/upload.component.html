@@ -1,0 +1,46 @@
+<div class="upload">
+
+  <ol class="breadcrumb">
+    <li *ngIf="model.step >= 1"><span class="header">Resource id:</span>  {{model.resourceId}}</li>
+    <li *ngIf="model.step >= 2"><span class="header">Image:</span>  {{model.fileName}}</li>
+  </ol>
+
+  <div *ngIf="model.step === 1">
+    <h4>1. Upload image</h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="resourceId" class="field-name">Resource id</label>
+        <input #resourceInput class="form-control" [(ngModel)]="model.resourceId" type="text" id="resourceId" autofocus required minlength="5" maxlength="50">
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-s margin-top-10" [disabled]="!(resourceInput.validity.valid)" (click)="next(2)"> Next
+    </button>
+  </div>
+  <div *ngIf="model.step === 2">
+    <h4>2. Select a file to upload</h4>
+    <p class="restrictions"><i class="glyphicon glyphicon-info-sign"></i>   Only jpg, jpeg and png files with maximum size of 5 MB is allowed.</p>
+    <form>
+      <!--<div class="radio upload-url-container">-->
+        <!--<label><input type="radio" [checked]="model.type === 'url'" (click)="onRadioClick('url')" name="file-upload-group" value="url">Upload from url</label>-->
+        <!--<div *ngIf="model.type === 'url'" class="upload-url-input">-->
+          <!--<label for="uploadUrl" class="field-name">Image url</label>-->
+          <!--<input #urlInput class="form-control margin-buttom-10" [(ngModel)]="model.uploadUrl" type="text" id="uploadUrl" name="uploadUrl" autofocus required minlength="5" maxlength="50">-->
+          <!--<button type="button" class="btn btn-success btn-s" (click)="uploadFromUrl()" [disabled]="!(urlInput.validity.valid)">-->
+            <!--<span class="glyphicon glyphicon-upload"></span> Upload-->
+          <!--</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <div class="radio upload-local-container">
+        <label><input type="radio" [checked]="model.type === 'local'" (click)="onRadioClick('local')" name="file-upload-group" value="local">Upload from local</label>
+        <div *ngIf="model.type === 'local'">
+          <image-upload (onAddingFile)="onAddingFile($event)" (onFinishedUpload)="onFinishedUpload($event)"></image-upload>
+        </div>
+      </div>
+      <!--<div class="upload-button">-->
+      <!--&lt;!&ndash;<button type="submit" class="btn btn-success btn-lg" (click)="uploadFromUrl()" [disabled]="!(urlinput.validity.valid)">&ndash;&gt;-->
+      <!--<button type="submit" class="btn btn-success btn-lg" (click)="uploadFromUrl()">-->
+      <!--<span class="glyphicon glyphicon-upload"></span> Upload-->
+      <!--</button>-->
+      <!--</div>-->
+    </form>
+</div>

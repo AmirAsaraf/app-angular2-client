@@ -1,0 +1,18 @@
+<div class="search">
+  <div class="search-box">
+    <h4>Search for images</h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="resourceId" class="field-name">Resource id</label>
+        <input #inputText class="form-control" [(ngModel)]="resourceId" type="text" id="resourceId" autofocus required minlength="5" maxlength="50">
+      </div>
+      <div class="form-group search">
+        <button type="submit" class="btn btn-primary btn-md" [disabled]="!inputText.validity.valid" (click)="search()">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="search-results">
+    <!--<div class="search-info"><span>Showing 5 images for resource id...</span></div>-->
+    <images-grid></images-grid>
+  </div>
+</div>

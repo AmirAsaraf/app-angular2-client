@@ -1,0 +1,23 @@
+.navigation-bar {
+  .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+   // color: black;
+   // font-weight: bold;
+  }
+
+  .user-name {
+    padding: 15px;
+    font-weight: bold;
+  }
+
+  .is-active {
+    color: #44a4ee !important;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-nav {
+      float: left;
+      margin: 0;
+    }
+  }
+}

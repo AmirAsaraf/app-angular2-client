@@ -1,0 +1,20 @@
+<div class="navigation-bar" *ngIf="showNavigation" [ngBusy]="logoutPromise">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Sample App</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]="['search']" [routerLinkActive]="['is-active']" data-toggle="tab" href="#search">Search</a></li>
+        <li><a [routerLink]="['upload']" [routerLinkActive]="['is-active']" data-toggle="tab" href="#upload">Upload</a></li>
+        <li><a [routerLink]="['activity']" [routerLinkActive]="['is-active']" data-toggle="tab" href="#activity">Activity</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        <li><div class="user-name">Hi, {{userName}}</div></li>
+        <li><a [routerLink]="['usermanagement']" [routerLinkActive]="['is-active']" data-toggle="tab" href="#usermanagement">User Management</a></li>
+        <li><a (click)="logout()" data-toggle="tab" href="#search">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,51 @@
+.users {
+  padding: 10px;
+
+  .title {
+    //  padding: 10px;
+  }
+
+  .flex-box:nth-child(2n+1) {
+    background: #f9f9f9;
+  }
+
+  .flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .flex-child {
+
+      max-width: 12%;
+      min-width: 100px;
+      flex-grow: 1;
+      line-height: 50px;
+
+      //border: 1px dashed grey;
+    }
+
+    .flex-child-action {
+      max-width: 6%;
+      min-width: 80px;
+      flex-grow: 1;
+      line-height: 50px;
+
+      color: #44a4ee;
+      cursor: pointer;
+
+      //border: 1px dashed grey;
+    }
+
+    .header {
+      font-weight: bold;
+
+    }
+  }
+
+  .add-user {
+    font-size: 16px;
+    color: #44a4ee;
+    cursor: pointer;
+    line-height: 50px;
+  }
+}

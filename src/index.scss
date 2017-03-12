@@ -1,0 +1,39 @@
+/*
+Put here all common and shared styles
+ */
+.field-name {
+  color: #a5a5a5;
+  font-size: 12px;
+}
+
+.fis-blue {
+  color: #44a4ee;
+}
+
+/*
+Forms Validation
+ */
+
+.ng-valid[required] {
+  border-left: 5px solid #5cb85c;
+}
+
+.ng-invalid:not(.ng-untouched):not(form) {
+  border-left: 5px solid #d9534f;
+}
+
+.ok {
+  color: #5cb85c;
+}
+
+.fail {
+  color : #d9534f;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-buttom-10 {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+<div class="image-upload">
+
+  <div class="row">
+    <div class="col-md-12">
+      <input type="file" ng2FileSelect [uploader]="uploader"/>
+      <div class="margin-top-10 margin-buttom-10">
+        <div *ngIf="model.fileItem">
+          <span><b>Size: </b></span>
+          <span>{{model.size}} bytes</span>
+          <span>({{model.size / 1000000 | number: '1.2-2'}} Megabyte)</span>
+          <span><b>Type: </b></span>
+          <span>{{model.fileItem.type}}</span>
+          <div class="margin-top-10">
+            <span *ngIf="model.isValidFile"><i class="glyphicon glyphicon-ok ok"></i></span>
+            <span *ngIf="!(model.isValidFile)"><i class="glyphicon glyphicon-remove fail"></i></span>
+            <span>{{model.message}}</span>
+          </div>
+        </div>
+      </div>
+      <!--<div class="margin-top-10">-->
+        <!--<div class="field-name">Progress</div>-->
+        <!--<div class="progress" style="">-->
+          <!--<div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <button type="button" class="btn btn-success btn-s" (click)="onUpload()" [disabled]="!(model.isValidFile) || model.isUploading">
+    <span class="glyphicon glyphicon-upload"></span> Upload
+  </button>
+</div>
+

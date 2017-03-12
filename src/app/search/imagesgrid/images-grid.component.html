@@ -1,0 +1,42 @@
+<!--<div class="row">-->
+<!--<div class="col-md-4">-->
+<!--<input *ngIf="config.filtering" placeholder="Filter all columns"-->
+<!--[ngTableFiltering]="config.filtering"-->
+<!--class="form-control"-->
+<!--(tableChanged)="onChangeTable(config)"/>-->
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<ng-table [config]="config"
+          (tableChanged)="onChangeTable(config)"
+          (cellClicked)="onCellClick($event)"
+          [rows]="rows" [columns]="columns">
+</ng-table>
+<!--<pagination *ngIf="config.paging"-->
+<!--class="pagination-sm"-->
+<!--[(ngModel)]="page"-->
+<!--[totalItems]="length"-->
+<!--[itemsPerPage]="itemsPerPage"-->
+<!--[maxSize]="maxSize"-->
+<!--[boundaryLinks]="true"-->
+<!--[rotate]="false"-->
+<!--(pageChanged)="onChangeTable(config, $event)"-->
+<!--(numPages)="numPages = $event">-->
+<!--</pagination>-->
+<!--<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>-->
+<modal #deleteImageModal>
+  <modal-header [show-close]="true">
+    <h4 class="modal-title">Delete image</h4>
+  </modal-header>
+  <modal-body>Are you sure you want to delete image '{{model.imageUrl}}'?</modal-body>
+  <modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="deleteImageModal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="deleteImageModal.close(); onDeleteUserOk()">OK</button>
+  </modal-footer>
+</modal>
+<modal #showImageModal>
+  <modal-header [show-close]="true">
+    <p class="modal-title">{{model.imageUrl}}, {{model.image.width}}x{{model.image.height}}, {{model.image.sourceName}}</p>
+  </modal-header>
+  <modal-body><img #imageElement src="{{model.imageUrl}}" alt=""/></modal-body>
+</modal>
